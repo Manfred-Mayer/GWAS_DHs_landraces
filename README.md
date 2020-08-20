@@ -13,7 +13,7 @@ CPU: 4+ cores, 3.3+ GHz/core<br/>
 ### Software<br/>
 R version 3.6.0<br/>
 GEMMA 0.98.1<br/>
-R packages: 'ape' version 5.3; 'asreml' version 3.0; 'ggplot2' version 3.2.0; 'plot3D' version 1.3; 'synbreed' version 0.12-9; 'VennDiagram' version 1.6.20; 'zoo' version 1.8-6<br/>
+R packages: 'ape' version 5.3; 'ASReml-R' version 3.0; 'ggplot2' version 3.2.0; 'plot3D' version 1.3; 'synbreed' version 0.12-9; 'VennDiagram' version 1.6.20; 'zoo' version 1.8-6<br/>
 
 ## Pipeline<br/>
 ### 1. Haplotype based GWAS in landrace derived DH lines<br/>
