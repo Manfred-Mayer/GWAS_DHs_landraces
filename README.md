@@ -1,19 +1,19 @@
-# R-scripts accompanying the article 'Discovery of favorable haplotypes for complex traits in maize landraces' (Mayer et al., 2020)
+# R-scripts accompanying the article 'Discovery of favorable haplotypes for complex traits in maize landraces' (Mayer et al., 2020)\
 
-### Reference 
-Mayer M, Hölker AC, González-Segovia E, Bauer E, Presterl T, Ouzunova M, Melchinger AE, Schön CC (2020) Discovery of favorable haplotypes for complex traits in maize landraces. Nat. Commun. *issue and page not available yet*. *doi not available yet*
+### Reference\
+Mayer M, Hölker AC, González-Segovia E, Bauer E, Presterl T, Ouzunova M, Melchinger AE, Schön CC (2020) Discovery of favorable haplotypes for complex traits in maize landraces. Nat. Commun. *issue and page not available yet*. *doi not available yet*\
 
-## System requirements
+## System requirements\
 
-### Hardware and OS
-The scripts were tested on Linux operating system but they should also be compatible with MAC and, except for the GEMMA application, also for Windows operating systems. We recommend a computer with the following specs:
-RAM: 16+ GB
-CPU: 4+ cores, 3.3+ GHz/core
+### Hardware and OS\
+The scripts were tested on Linux operating system but they should also be compatible with MAC and, except for the GEMMA application, also for Windows operating systems. We recommend a computer with the following specs:\
+RAM: 16+ GB\
+CPU: 4+ cores, 3.3+ GHz/core\
 
-### Software
-R version 3.6.0
-GEMMA 0.98.1
-R packages: 'ape' version 5.3; 'asreml' version 3.0; 'ggplot2' version 3.2.0; 'plot3D' version 1.3; 'synbreed' version 0.12-9; 'VennDiagram' version 1.6.20; 'zoo' version 1.8-6
+### Software\
+R version 3.6.0\
+GEMMA 0.98.1\
+R packages: 'ape' version 5.3; 'asreml' version 3.0; 'ggplot2' version 3.2.0; 'plot3D' version 1.3; 'synbreed' version 0.12-9; 'VennDiagram' version 1.6.20; 'zoo' version 1.8-6\
 
 ## Pipeline
 ### 1. Haplotype based GWAS in landrace derived DH lines
