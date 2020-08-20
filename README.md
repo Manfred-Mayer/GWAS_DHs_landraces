@@ -1,41 +1,41 @@
-# R-scripts accompanying the article 'Discovery of favorable haplotypes for complex traits in maize landraces' (Mayer et al., 2020)\
+# R-scripts accompanying the article 'Discovery of favorable haplotypes for complex traits in maize landraces' (Mayer et al., 2020)<br/>
 
-### Reference\
-Mayer M, Hölker AC, González-Segovia E, Bauer E, Presterl T, Ouzunova M, Melchinger AE, Schön CC (2020) Discovery of favorable haplotypes for complex traits in maize landraces. Nat. Commun. *issue and page not available yet*. *doi not available yet*\
+### Reference<br/>
+Mayer M, Hölker AC, González-Segovia E, Bauer E, Presterl T, Ouzunova M, Melchinger AE, Schön CC (2020) Discovery of favorable haplotypes for complex traits in maize landraces. Nat. Commun. *issue and page not available yet*. *doi not available yet*<br/>
 
-## System requirements\
+## System requirements<br/>
 
-### Hardware and OS\
-The scripts were tested on Linux operating system but they should also be compatible with MAC and, except for the GEMMA application, also for Windows operating systems. We recommend a computer with the following specs:\
-RAM: 16+ GB\
-CPU: 4+ cores, 3.3+ GHz/core\
+### Hardware and OS<br/>
+The scripts were tested on Linux operating system but they should also be compatible with MAC and, except for the GEMMA application, also for Windows operating systems. We recommend a computer with the following specs:<br/>
+RAM: 16+ GB<br/>
+CPU: 4+ cores, 3.3+ GHz/core<br/>
 
-### Software\
-R version 3.6.0\
-GEMMA 0.98.1\
-R packages: 'ape' version 5.3; 'asreml' version 3.0; 'ggplot2' version 3.2.0; 'plot3D' version 1.3; 'synbreed' version 0.12-9; 'VennDiagram' version 1.6.20; 'zoo' version 1.8-6\
+### Software<br/>
+R version 3.6.0<br/>
+GEMMA 0.98.1<br/>
+R packages: 'ape' version 5.3; 'asreml' version 3.0; 'ggplot2' version 3.2.0; 'plot3D' version 1.3; 'synbreed' version 0.12-9; 'VennDiagram' version 1.6.20; 'zoo' version 1.8-6<br/>
 
-## Pipeline
-### 1. Haplotype based GWAS in landrace derived DH lines
-Folder: *1_GWAS_DHs_haplo*
+## Pipeline<br/>
+### 1. Haplotype based GWAS in landrace derived DH lines<br/>
+Folder: *1_GWAS_DHs_haplo*<br/>
 
-**1.01_dataPrep.r**: Prepares genotypic data; output is a gpData object (synbreed package).
-**1.02_haplotypeConstruction.r**: Constructs haplotypes to be used in GWAS; main output is a binary coded haplotype matrix.
-**1.03_input_GWAS.r**: Generates all input files needed for the analysis with gemma, including an sh-script with the respective gemma commands; run this sh-script before step 1.04.
-**1.04_summary_GWAS.r**: Summarizes gemma output; generates Manhattan plot, QQ plot and list of significant haplotypes for each GWAS run.
-**1.05_defineRegions_GWAS.r**: Defines trait associated regions by assigning significant haplotypes to one region if they are within 1 Mb of each other and in high linkage disequilibrium (*r*<sup>2</sup> ≥ 0.8); output is a list of regions for each environment-specific GWAS run, with a specified focus haplotype for each region.
-**1.06_backwardElimination_GWAS.r**: Performs backward elimination of the haplotypes from step 1.05, using a multi-locus multi-environment model; for all haplotypes passing the backward elimination, environment-specific effect estimates are calculated; the script further outputs the proportion of genotypic variance explained by the haplotypes in a simultaneous fit.
-**1.07_recheckFinalHapSet.r**: In rare cases, multiple haplotypes within the same window might be significant in GWAS but only one of them was retained in the backward elimination due to collinearity; here the respective other haplotypes are tested and if significant added to the set of focus haplotypes.
-**1.08_finalRegionsTable.r**: Generates final list of trait associated genomic regions, based on the final set of focus haplotypes (obtained in 1.06) and the corresponding genomic regions calculated in step 1.05.
-**1.09_effectDirections_and_Stability.r**: Distinguishes between favorable, unfavorable and interacting haplotypes.
-**1.10_stability_over_landraces.r**: Estimates landrace-specific effects for the set of focus haplotypes and compares effect direction and significance between landraces.
-**1.11_modelWholeWindow.r**: For every 10-SNP window including a focus haplotype, this script calculates the proportion of genetic variance explained by the whole window (haplotypes coded as categorical variable) and the effect of each alternative haplotype within the respective window relative to the focus haplotype.
-**1.12_bivarModel.r**: Analyzes in a bivariate model if the focus haplotypes of one trait also have a significant effect on other traits.
-**1.13_plotRegions.r**: Plots the identified trait-associated regions (as defined in 1.08) for all traits.
-**1.14_plotEffects_perEnvironment.r**: Plots for a given trait the position of the identified focus haplotypes as well as their effect direction and size in each environment.
-**1.15_boxplots_Size_nGenes_perReg.r**: Generates boxplots for the size of identified trait- associated regions (in kb) as well as for the number of annotated genes within those regions.
-**1.16_plotFavUnfavInter_nEnv.r**: Generates boxplots for the number of environments for which focus haplotypes of different categories (favorable, unfavorable, interacting, all) show significant effects.
-**1.17_barplots_effectOnMultiTraits.r**: Uses results from 1.12 to generate barplots with the proportion of genotypic variance explained by haplotypes with effects on multiple traits.
+**1.01_dataPrep.r**: Prepares genotypic data; output is a gpData object (synbreed package).<br/>
+**1.02_haplotypeConstruction.r**: Constructs haplotypes to be used in GWAS; main output is a binary coded haplotype matrix.<br/>
+**1.03_input_GWAS.r**: Generates all input files needed for the analysis with gemma, including an sh-script with the respective gemma commands; run this sh-script before step 1.04.<br/>
+**1.04_summary_GWAS.r**: Summarizes gemma output; generates Manhattan plot, QQ plot and list of significant haplotypes for each GWAS run.<br/>
+**1.05_defineRegions_GWAS.r**: Defines trait associated regions by assigning significant haplotypes to one region if they are within 1 Mb of each other and in high linkage disequilibrium (*r*<sup>2</sup> ≥ 0.8); output is a list of regions for each environment-specific GWAS run, with a specified focus haplotype for each region.<br/>
+**1.06_backwardElimination_GWAS.r**: Performs backward elimination of the haplotypes from step 1.05, using a multi-locus multi-environment model; for all haplotypes passing the backward elimination, environment-specific effect estimates are calculated; the script further outputs the proportion of genotypic variance explained by the haplotypes in a simultaneous fit.<br/>
+**1.07_recheckFinalHapSet.r**: In rare cases, multiple haplotypes within the same window might be significant in GWAS but only one of them was retained in the backward elimination due to collinearity; here the respective other haplotypes are tested and if significant added to the set of focus haplotypes.<br/>
+**1.08_finalRegionsTable.r**: Generates final list of trait associated genomic regions, based on the final set of focus haplotypes (obtained in 1.06) and the corresponding genomic regions calculated in step 1.05.<br/>
+**1.09_effectDirections_and_Stability.r**: Distinguishes between favorable, unfavorable and interacting haplotypes.<br/>
+**1.10_stability_over_landraces.r**: Estimates landrace-specific effects for the set of focus haplotypes and compares effect direction and significance between landraces.<br/>
+**1.11_modelWholeWindow.r**: For every 10-SNP window including a focus haplotype, this script calculates the proportion of genetic variance explained by the whole window (haplotypes coded as categorical variable) and the effect of each alternative haplotype within the respective window relative to the focus haplotype.<br/>
+**1.12_bivarModel.r**: Analyzes in a bivariate model if the focus haplotypes of one trait also have a significant effect on other traits.<br/>
+**1.13_plotRegions.r**: Plots the identified trait-associated regions (as defined in 1.08) for all traits.<br/>
+**1.14_plotEffects_perEnvironment.r**: Plots for a given trait the position of the identified focus haplotypes as well as their effect direction and size in each environment.<br/>
+**1.15_boxplots_Size_nGenes_perReg.r**: Generates boxplots for the size of identified trait- associated regions (in kb) as well as for the number of annotated genes within those regions.<br/>
+**1.16_plotFavUnfavInter_nEnv.r**: Generates boxplots for the number of environments for which focus haplotypes of different categories (favorable, unfavorable, interacting, all) show significant effects.<br/>
+**1.17_barplots_effectOnMultiTraits.r**: Uses results from 1.12 to generate barplots with the proportion of genotypic variance explained by haplotypes with effects on multiple traits.<br/>
 
 ### 2. Comparison of landrace derived DH lines and breeding lines
 Folder: *2_comparison_DHvsBL*
