@@ -1,7 +1,7 @@
 ###################################################################
 ###################################################################
 ####
-#### plot the for each trait the environment-specific effects
+#### plot for each trait the environment-specific effects
 #### for the final set of focus haplotypes
 ####
 #### Manfred Mayer (Technical University of Munich, Plant Breeding)

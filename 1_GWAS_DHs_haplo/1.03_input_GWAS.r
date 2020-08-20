@@ -4,7 +4,7 @@
 #### generate GWAS input files
 #### 1) merge chromosomes of haplotype dataset into one object
 #### 2) calculate kinship matrix based on SNPs
-#### 3) prepare BLUEs within environment for each trait
+#### 3) prepare BLUEs within environments for each trait
 #### 4) prepare input files for gemma
 ####
 #### Manfred Mayer (Technical University of Munich, Plant Breeding)
@@ -22,7 +22,6 @@ set.seed(212)
 
 # load packages
 library(synbreed)
-library(lattice)
 
 # arguments
 nSNPs <- 10
@@ -95,13 +94,6 @@ str(gp)
 ###
 ### calculate kinship matrix
 ###
-# function for reordering kinship matrix according to the relationship between individuals (using function hclust)
-reorder_kin <- function(kinship_mat){
-dd <- as.dist((1-kinship_mat)/2)
-hc <- hclust(dd, method = "average")
-kinship_mat <-kinship_mat[hc$order, hc$order]
-return(kinship_mat)
-}
 
 # function for recoding geno matrix according to (0 = homozygous for the major allele, 1 = heterozygous, 2 = homozygous for the minor allele)
 recodeMAF_f <- function(x) {
@@ -113,17 +105,6 @@ recodeMAF_f <- function(x) {
 	return(x)
 }
 
-# define color scheme for the kinship plots
-cols <- colorRampPalette(c("#ffffff", "#ffe4c8", "#ffdab4", "#ffd0a0", 
-                "#ffc182", "#ffb76e", "#ffad5a", "#ffa346", "#ff9932", 
-                "#ff8f1e", "#ff850a", "#e17100", "#cd6700", "#b95d00", 
-                "#a55300", "#914900", "#7d3f00", "#5f3000", "#4b2600", 
-                "#371c00", "#000000"))(50)
-
-# colors of landraces
-	col_IDs <- c("lawngreen", "palevioletred2", "deepskyblue")
-	names(col_IDs) <- c('DH_KE','DH_LL','DH_PE')
-
 # edit allele coding in gp$geno
 gp_kin <- gp
 gp_kin$geno <- apply(gp_kin$geno, 2, recodeMAF_f)
@@ -131,27 +112,6 @@ gp_kin$geno <- apply(gp_kin$geno, 2, recodeMAF_f)
 # Astle and Balding (2009)
 Kinship <- kin(gp_kin, ret="realizedAB")
 save(Kinship, file = paste("Kin_AB_DHs_SNPs.RData", sep = ""))
-
-# reorder kinship matrix according to the relationship between individuals
-# for plotting
-Kinship <- reorder_kin(Kinship)
-
-# define breaks for color scheme (specific to each kinship matrix)
-at <- seq(min(Kinship),max(Kinship),(max(Kinship)-min(Kinship))/(length(cols)-1))
-
-# define colerkey drawn at the righthand side of the plot
-colorkey <- list(space="right", col=cols, at=at, tick.number=11)
-
-# set colors of labels and tickmarks according to the landrace membership of individuals
-col_lab <- col_IDs[substr(rownames(Kinship),1,5)]
-
-# levelplot cannot handle objects of class "relationship.matrix", thus we have to change it into "matrix"
-class(Kinship) <- "matrix"
-
-# plotting
-pdf(paste("Kin_AB_DHs_SNPs.pdf", sep=""))
-levelplot(Kinship, at=at, col.regions=cols, colorkey=colorkey, xlab="",ylab="", scales=list(x=list(cex=0.05, rot = 90), y=list(cex=0.05), tck = 2, col = col_lab), main = "whole genome")
-dev.off()
 
 ###
 ###################################################################

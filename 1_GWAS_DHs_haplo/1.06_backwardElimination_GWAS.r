@@ -5,7 +5,7 @@
 #### and within each region one focus haplotype (the one with the lowest p-value) was selected
 #### these are "candidate haplotypes"
 ####
-#### now, we perform the backward elimination to obtain the final set of haplotypes
+#### now, we perform the backward elimination to obtain the final set (Q) of haplotypes
 #### also, based on the multi-locus multi-environment model, we extract the corresponding
 #### environment-specific haplotype effects
 ####

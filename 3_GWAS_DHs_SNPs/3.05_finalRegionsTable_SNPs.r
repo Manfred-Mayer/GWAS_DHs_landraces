@@ -1,7 +1,7 @@
 ###################################################################
 ###################################################################
 ####
-#### after the final set of trait-associated SNPs is defined,
+#### after the final set of trait-associated SNPs is defined (script 3.04),
 #### now generate table of corresponding associated genomic regions
 #### to be used for candidate gene search etc.
 ####

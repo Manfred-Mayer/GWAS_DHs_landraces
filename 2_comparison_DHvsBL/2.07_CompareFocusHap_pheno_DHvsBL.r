@@ -28,7 +28,7 @@ FDR <- "15"
 minCount <- 3
 
 # choose according to the focus haplotype you want to plot
-TRAIT <- "PH_V4"
+TRAIT <- "PH_V6"
 direction <- "fav"  #"fav" or "unfav"
 hap_focus <- "wind_03_01592_6"
 leg_pos <- "topleft"
@@ -119,28 +119,28 @@ temp
 temp <- c(0.6,0.6,0.9)
 BL.2_edge <- col2rgb_MM(temp, alpha = 1)
 BL.2_fill <- col2rgb_MM(temp, alpha = 0.25)
-BL.2_fill2 <- col2rgb_MM(temp, alpha = 0.75)
+BL.2_fill2 <- col2rgb_MM(temp, alpha = 0.65)
 
 temp <- (col2rgb("darkblue")/255)[,1]
 temp
 temp <- c(0,0,0.6)
 BL.1_edge <- col2rgb_MM(temp, alpha = 1)
 BL.1_fill <- col2rgb_MM(temp, alpha = 0.25)
-BL.1_fill2 <- col2rgb_MM(temp, alpha = 0.75)
+BL.1_fill2 <- col2rgb_MM(temp, alpha = 0.65)
 
 temp <- (col2rgb("green2")/255)[,1]
 temp
 temp <- c(0,0.85,0)
 LR.2_edge <- col2rgb_MM(temp, alpha = 1)
 LR.2_fill <- col2rgb_MM(temp, alpha = 0.25)
-LR.2_fill2 <- col2rgb_MM(temp, alpha = 0.75)
+LR.2_fill2 <- col2rgb_MM(temp, alpha = 0.65)
 
 temp <- (col2rgb("darkgreen")/255)[,1]
 temp
 temp <- c(0,0.4,0)
 LR.1_edge <- col2rgb_MM(temp, alpha = 1)
 LR.1_fill <- col2rgb_MM(temp, alpha = 0.25)
-LR.1_fill2 <- col2rgb_MM(temp, alpha = 0.75)
+LR.1_fill2 <- col2rgb_MM(temp, alpha = 0.65)
 
 
 ############################################################################################################################################################################################################
@@ -407,8 +407,8 @@ p_values_store
 DF <- data.frame(Value = Value,
 				 Group = Group,
 				 Environment = Environment)
-lev <- c("BBG2017", "EIN2017", "GOL2017", "OLI2017", "ROG2017", "TOM2017",
-													   "EIN2018", "GOL2018", "KLW2018", "ROG2018", "TOM2018")
+lev <- c("2017.BBG", "2017.EIN", "2017.GOL", "2017.OLI", "2017.ROG", "2017.TOM",
+         "2018.EIN", "2018.GOL", "2018.KLW", "2018.ROG", "2018.TOM")
 lev <- lev[which(lev %in% colnames(pheno_all))]
 DF$Environment <- factor(DF$Environment, levels = lev)
 DF$Group <- factor(DF$Group, levels = c(paste0(LR, "_Focus"), "BL_noFocus"))
@@ -424,8 +424,9 @@ ymax <- max(DF$Value) *1.01
 		  png(paste(outfolder, "/PhenoPerEnv_", region, "_", LR, ".png", sep =""), width = 3600 * (length(p_values_store) / 6), height = 1800, res = 300)
 		  par(mar = c(3.5, 3.5, 0.1, 0.4) + 0.1, mgp = c(2.5, 1, 0))
 			ggplot(DF, aes(Environment, Value, fill = Group)) +
-			  geom_boxplot() +
+			  geom_boxplot(outlier.shape = NA) +
 			  scale_fill_manual(values = col_manual) +
+			  geom_point(position = position_jitterdodge(), aes(alpha = 0.2), show.legend = FALSE) +
 			  theme_bw() +
 			  theme(axis.text.x = element_text(size = 14),
 			        axis.text.y = element_text(size = 14),
@@ -497,8 +498,8 @@ p_values_store
 DF <- data.frame(Value = Value,
 				 Group = Group,
 				 Environment = Environment)
-lev <- c("BBG2017", "EIN2017", "GOL2017", "OLI2017", "ROG2017", "TOM2017",
-													   "EIN2018", "GOL2018", "KLW2018", "ROG2018", "TOM2018")
+lev <- c("2017.BBG", "2017.EIN", "2017.GOL", "2017.OLI", "2017.ROG", "2017.TOM",
+         "2018.EIN", "2018.GOL", "2018.KLW", "2018.ROG", "2018.TOM")
 lev <- lev[which(lev %in% colnames(pheno_all))]
 DF$Environment <- factor(DF$Environment, levels = lev)
 DF$Group <- factor(DF$Group, levels = c(paste0(LR, "_Focus"), "BL_noFocus"))
@@ -514,8 +515,9 @@ ymax <- max(DF$Value) *1.01
 		  png(paste(outfolder, "/PhenoPerEnv_", region, "_", LR, ".png", sep =""), width = 3600 * (length(p_values_store) / 6), height = 1800, res = 300)
 		  par(mar = c(3.5, 3.5, 0.1, 0.4) + 0.1, mgp = c(2.5, 1, 0))
 			ggplot(DF, aes(Environment, Value, fill = Group)) +
-			  geom_boxplot() +
+			  geom_boxplot(outlier.shape = NA) +
 			  scale_fill_manual(values = col_manual) +
+			  geom_point(position = position_jitterdodge(), aes(alpha = 0.2), show.legend = FALSE) +
 			  theme_bw() +
 			  theme(axis.text.x = element_text(size = 14),
 			        axis.text.y = element_text(size = 14),
@@ -587,8 +589,8 @@ p_values_store
 DF <- data.frame(Value = Value,
 				 Group = Group,
 				 Environment = Environment)
-lev <- c("BBG2017", "EIN2017", "GOL2017", "OLI2017", "ROG2017", "TOM2017",
-													   "EIN2018", "GOL2018", "KLW2018", "ROG2018", "TOM2018")
+lev <- c("2017.BBG", "2017.EIN", "2017.GOL", "2017.OLI", "2017.ROG", "2017.TOM",
+         "2018.EIN", "2018.GOL", "2018.KLW", "2018.ROG", "2018.TOM")
 lev <- lev[which(lev %in% colnames(pheno_all))]
 DF$Environment <- factor(DF$Environment, levels = lev)
 DF$Group <- factor(DF$Group, levels = c(paste0(LR, "_Focus"), "BL_noFocus"))
@@ -604,8 +606,9 @@ ymax <- max(DF$Value) *1.01
 		  png(paste(outfolder, "/PhenoPerEnv_", region, "_", LR, ".png", sep =""), width = 3600 * (length(p_values_store) / 6), height = 1800, res = 300)
 		  par(mar = c(3.5, 3.5, 0.1, 0.4) + 0.1, mgp = c(2.5, 1, 0))
 			ggplot(DF, aes(Environment, Value, fill = Group)) +
-			  geom_boxplot() +
+			  geom_boxplot(outlier.shape = NA) +
 			  scale_fill_manual(values = col_manual) +
+			  geom_point(position = position_jitterdodge(), aes(alpha = 0.2), show.legend = FALSE) +
 			  theme_bw() +
 			  theme(axis.text.x = element_text(size = 14),
 			        axis.text.y = element_text(size = 14),

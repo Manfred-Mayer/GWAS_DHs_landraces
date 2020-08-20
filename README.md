@@ -13,7 +13,7 @@ CPU: 4+ cores, 3.3+ GHz/core
 ### Software
 R version 3.6.0
 GEMMA 0.98.1
-R packages: 'ape' version 5.3; 'asreml' version 3.0; 'ggplot2' version 3.2.0; 'lattice' version 0.20-38; 'plot3D' version 1.3; 'synbreed' version 0.12-9; 'VennDiagram' version 1.6.20; 'zoo' version 1.8-6
+R packages: 'ape' version 5.3; 'asreml' version 3.0; 'ggplot2' version 3.2.0; 'plot3D' version 1.3; 'synbreed' version 0.12-9; 'VennDiagram' version 1.6.20; 'zoo' version 1.8-6
 
 ## Pipeline
 ### 1. Haplotype based GWAS in landrace derived DH lines
@@ -30,7 +30,7 @@ Folder: *1_GWAS_DHs_haplo*
 **1.09_effectDirections_and_Stability.r**: Distinguishes between favorable, unfavorable and interacting haplotypes.
 **1.10_stability_over_landraces.r**: Estimates landrace-specific effects for the set of focus haplotypes and compares effect direction and significance between landraces.
 **1.11_modelWholeWindow.r**: For every 10-SNP window including a focus haplotype, this script calculates the proportion of genetic variance explained by the whole window (haplotypes coded as categorical variable) and the effect of each alternative haplotype within the respective window relative to the focus haplotype.
-**1.12_bivarModel.r**: Analyzes in a bivariate model if the focus haplotypes of one trait also have a significant effect on another trait.
+**1.12_bivarModel.r**: Analyzes in a bivariate model if the focus haplotypes of one trait also have a significant effect on other traits.
 **1.13_plotRegions.r**: Plots the identified trait-associated regions (as defined in 1.08) for all traits.
 **1.14_plotEffects_perEnvironment.r**: Plots for a given trait the position of the identified focus haplotypes as well as their effect direction and size in each environment.
 **1.15_boxplots_Size_nGenes_perReg.r**: Generates boxplots for the size of identified trait- associated regions (in kb) as well as for the number of annotated genes within those regions.
@@ -64,7 +64,7 @@ Folder: *4_DiversityMeasures*
 
 **4.01_PIC_DH.BL_SNPs.r**: Calculates Polymorphism Information Content based on SNPs (PIC<sub>SNP</sub>) separately for DH lines from KE, LL and PE, for the combined set of DH lines and for the set of breeding lines.
 **4.02_PIC_DH.BL_haplotypes.r**: Calculates Polymorphism Information Content based on haplotypes (PIC<sub>HAP</sub>) separately for DH lines from KE, LL and PE, for the combined set of DH lines and for the set of breeding lines.
-**4.03_expHet_DH.BL_SNPs.r**: Calculates expected heterozygosity based on SNPs (H<sub>SNP</sub>) separately for DH lines from KE, LL and PE, for the combined set of DH lines and for the set of breeding lines.
-**4.04_expHet_DH.BL_haplotypes.r**:  Calculates expected heterozygosity based on haplotypes (H<sub>HAP</sub>) separately for DH lines from KE, LL and PE, for the combined set of DH lines and for the set of breeding lines.
+**4.03_expHet_DH.BL_SNPs.r**: Calculates expected heterozygosity based on SNPs (*H*<sub>SNP</sub>) separately for DH lines from KE, LL and PE, for the combined set of DH lines and for the set of breeding lines.
+**4.04_expHet_DH.BL_haplotypes.r**:  Calculates expected heterozygosity based on haplotypes (*H*<sub>HAP</sub>) separately for DH lines from KE, LL and PE, for the combined set of DH lines and for the set of breeding lines.
 **4.05_nR_DH.BL.r**: Calculates minimum number of historical recombination events (nR) separately for DH lines from KE, LL and PE, for the combined set of DH lines and for the set of breeding lines.
 **4.06_LD_DH.BL.r**: Calculates pairwise *r*<sup>2</sup> between SNPs within 1 Mb of each other as well as *r*<sup>2</sup>  decay distance for DH lines from KE, LL and PE, for the combined set of DH lines and for the set of breeding lines.
