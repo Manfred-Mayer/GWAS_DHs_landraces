@@ -48,6 +48,7 @@ TRAIT2
 # functions
 
 # calculate a positive semidefinite matrix
+# (adapted from course on "Statistical analysis for new phenotyping techniques", June 2018, Wageningen University and Research, Netherlands)
 possemiD <- function(matrix, epsilon = 0.0001){
   eigenval <- eigen(matrix)
   eigenval$values[eigenval$values < epsilon] <- epsilon

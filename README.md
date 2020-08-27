@@ -1,7 +1,7 @@
 # R-scripts accompanying the article 'Discovery of favorable haplotypes for complex traits in maize landraces' (Mayer et al., 2020)<br/>
 
 ### Reference<br/>
-Mayer M, Hölker AC, González-Segovia E, Bauer E, Presterl T, Ouzunova M, Melchinger AE, Schön CC (2020) Discovery of favorable haplotypes for complex traits in maize landraces. Nat. Commun. *issue and page not available yet*. *doi not available yet*<br/>
+Mayer M, Hölker AC, González-Segovia E, Bauer E, Presterl T, Ouzunova M, Melchinger AE, Schön CC (2020) Discovery of beneficial haplotypes for complex traits in maize landraces. Nat. Commun. *issue and page not available yet*. *doi not available yet*<br/>
 
 ## System requirements<br/>
 

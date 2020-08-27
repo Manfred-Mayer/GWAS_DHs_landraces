@@ -194,6 +194,7 @@ print(n_per_group)
 
 ###
 ### multi-locus, multi-environment model
+### (modified after Millet et al. 2016, doi:10.1104/pp.16.00621)
 ###
 
 	### 1) initial sorting of QTLs
