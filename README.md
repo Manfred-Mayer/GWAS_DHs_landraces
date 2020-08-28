@@ -23,9 +23,9 @@ Folder: *1_GWAS_DHs_haplo*<br/>
 
 **1.02_haplotypeConstruction.r**: Constructs haplotypes to be used in GWAS; main output is a binary coded haplotype matrix.<br/>
 
-**1.03_input_GWAS.r**: Generates all input files needed for the analysis with gemma, including an sh-script with the respective gemma commands; run this sh-script before step 1.04.<br/>
+**1.03_input_GWAS.r**: Generates all input files needed for the analysis with GEMMA, including an sh-script with the respective GEMMA commands; run this sh-script before step 1.04.<br/>
 
-**1.04_summary_GWAS.r**: Summarizes gemma output; generates Manhattan plot, QQ plot and list of significant haplotypes for each GWAS run.<br/>
+**1.04_summary_GWAS.r**: Summarizes GEMMA output; generates Manhattan plot, QQ plot and list of significant haplotypes for each GWAS run.<br/>
 
 **1.05_defineRegions_GWAS.r**: Defines trait associated regions by assigning significant haplotypes to one region if they are within 1 Mb of each other and in high linkage disequilibrium (*r*<sup>2</sup> ≥ 0.8); output is a list of regions for each environment-specific GWAS run, with a specified focus haplotype for each region.<br/>
 
@@ -77,9 +77,9 @@ Folder: *2_comparison_DHvsBL*<br/>
 ### 3. SNP based GWAS in landrace derived DH lines<br/>
 Folder: *3_GWAS_DHs_SNPs*<br/>
 
-**3.01_input_GWAS_SNPs.r**: Generates all input files needed for the SNP-based analysis with gemma, including an sh-script with the respective gemma commands; run this sh-script before step 3.02.<br/>
+**3.01_input_GWAS_SNPs.r**: Generates all input files needed for the SNP-based analysis with GEMMA, including an sh-script with the respective GEMMA commands; run this sh-script before step 3.02.<br/>
 
-**3.02_summary_GWAS_SNPs.r**: Summarizes gemma output; generates Manhattan plot, QQ plot and list of significant SNPs for each GWAS run.<br/>
+**3.02_summary_GWAS_SNPs.r**: Summarizes GEMMA output; generates Manhattan plot, QQ plot and list of significant SNPs for each GWAS run.<br/>
 
 **3.03_defineRegions_GWAS_SNPs.r**: Defines trait associated regions by assigning significant SNPs to one region if they are within 1 Mb of each other and in high linkage disequilibrium (*r*<sup>2</sup> ≥ 0.8); output is a list of regions for each environment-specific GWAS run, with a specified focus SNP for each region.<br/>
 
